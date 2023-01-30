@@ -10,6 +10,9 @@ packages = [{include = "grid_backend_service"}]
 python = "^3.11"
 fastapi = "^0.89.1"
 uvicorn = {extras = ["standard"], version = "^0.20.0"}
+beanie = "^1.17.0"
+redis = "^4.4.2"
+sentry-sdk = {extras = ["fastapi"], version = "^1.14.0"}
 
 [tool.poetry.group.dev.dependencies]
 autoflake = "^2.0.0"
