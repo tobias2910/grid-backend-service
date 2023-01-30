@@ -14,7 +14,7 @@ app = FastAPI()
 
 # Initialize the Sentry client
 sentry_sdk.init(
-    dsn="https://a5dc106a53214ccc93b2ecabb217ab86@o1381965.ingest.sentry.io/4504592317415424",
+    dsn=settings.SENTRY_DSN,
     traces_sample_rate=settings.SENTRY_TRACE_SAMPLE_RATE,
 )
 
