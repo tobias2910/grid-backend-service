@@ -3,6 +3,7 @@ import motor
 import sentry_sdk
 from beanie import init_beanie
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 
 from src.config.settings import settings
@@ -19,6 +20,7 @@ sentry_sdk.init(
 )
 
 # Add the middlewares to the chain
+app.add_middleware(CORSMiddleware, allow_origins=["*"])
 app.add_middleware(GZipMiddleware)
 
 # Attach all the routers

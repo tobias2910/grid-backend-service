@@ -6,8 +6,8 @@ from pydantic import BaseModel
 from pymongo import GEOSPHERE
 
 
-class GeoJson2DPoint(BaseModel):
-    """The GeoJson object."""
+class GeoData(BaseModel):
+    """The GeoData object."""
 
     type: str = "Point"
     coordinates: Tuple[float, float]
@@ -27,7 +27,7 @@ class GridAsset(Document):
     name: str
     status: bool
     contact_information: ContactInformation
-    geo: GeoJson2DPoint
+    geo: GeoData
 
     class Settings:
         """The collection to store the data in the DB."""

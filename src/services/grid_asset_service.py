@@ -5,7 +5,7 @@ from beanie import PydanticObjectId
 from beanie.odm.operators.find.geospatial import Near
 from fastapi import HTTPException, status
 
-from src.models.grid_asset_model import ContactInformation, GeoJson2DPoint, GridAsset
+from src.models.grid_asset_model import ContactInformation, GeoData, GridAsset
 from src.schemas.grid_asset_schema import DBGridAsset
 
 
@@ -74,7 +74,7 @@ class GridAssetService:
             name=name,
             status=status,
             contact_information=ContactInformation(first_name=first_name, last_name=last_name, mail=mail),
-            geo=GeoJson2DPoint(coordinates=(lat, lon)),
+            geo=GeoData(coordinates=(lat, lon)),
         )
         await asset.insert()
         return asset
